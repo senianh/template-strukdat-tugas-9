@@ -3,7 +3,7 @@
 # Tugas Praktikum Struktur Data 09
 
 > Materi: Tree (BST)  
-> Pengajar: Asisten Praktikum 2023
+> Pengajar: Asisten Praktikum 2024
 ## NAMA - NPM
 
 **Harap untuk membaca instruksi terlebih dahulu sampai dipahami!**
