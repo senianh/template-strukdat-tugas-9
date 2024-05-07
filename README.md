@@ -3,7 +3,8 @@
 
 > Materi: Tree (BST)  
 > Pengajar: Asisten Praktikum 2023
-## Tegar Posma Diaz Simanjuntak - 140810220085
+## NAMA - NPM
+## GANTI NAMA DAN 
 
 **Harap untuk membaca instruksi terlebih dahulu sampai dipahami!**
 
