@@ -14,6 +14,8 @@ template <typename T> struct Node {
   T data;
   Node *left;
   Node *right;
+
+  Node(T value) : data(value), left(nullptr), right(nullptr) {}
 };
 
 /**
@@ -43,6 +45,7 @@ template <typename T> Tree<T> createTree() { return nullptr; }
  */
 template <typename T> pointer<T> createElement(T data) {
   // TODO: Implementasikan!
+  return new Node<T>(data);
 }
 
 /**
@@ -57,6 +60,8 @@ template <typename T> pointer<T> createElement(T data) {
 template <typename T>
 bool isHigherThanRoot(Tree<T> &Root, pointer<T> &checkElement) {
   // TODO: Implementasikan!
+  if (Root == nullptr) return false; 
+  return checkElement->data > Root->data;
 }
 
 /**
@@ -67,6 +72,13 @@ bool isHigherThanRoot(Tree<T> &Root, pointer<T> &checkElement) {
  */
 template <typename T> void insertBST(Tree<T> &Root, pointer<T> newElement) {
   // TODO: Implementasikan!
+  if (Root == nullptr) {
+    Root = newElement;
+  } else if (newElement->data < Root->data) {
+    insertBST(Root->left, newElement);
+  } else {
+    insertBST(Root->right, newElement);
+  }
 }
 
 /**
@@ -79,6 +91,13 @@ template <typename T> void insertBST(Tree<T> &Root, pointer<T> newElement) {
  */
 template <typename T> pointer<T> search(Tree<T> &Root, T data) {
   // TODO: Implementasikan!
+  if (Root == nullptr || Root->data == data) {
+    return Root;
+  } else if (data < Root->data) {
+    return search(Root->left, data);
+  } else {
+    return search(Root->right, data);
+  }
 }
 
 /**
@@ -89,6 +108,11 @@ template <typename T> pointer<T> search(Tree<T> &Root, T data) {
  */
 template <typename T> void preOrder(Tree<T> &Root, vector<T> &traversedData) {
   // TODO: Implementasikan!
+  if (Root != nullptr) {
+    traversedData.push_back(Root->data);
+    preOrder(Root->left, traversedData);
+    preOrder(Root->right, traversedData);
+  }
 }
 
 /**
@@ -99,6 +123,11 @@ template <typename T> void preOrder(Tree<T> &Root, vector<T> &traversedData) {
  */
 template <typename T> void inOrder(Tree<T> &Root, vector<T> &traversedData) {
   // TODO: Implementasikan!
+  if (Root != nullptr) {
+    inOrder(Root->left, traversedData);
+    traversedData.push_back(Root->data);
+    inOrder(Root->right, traversedData);
+  }
 }
 
 /**
@@ -109,6 +138,11 @@ template <typename T> void inOrder(Tree<T> &Root, vector<T> &traversedData) {
  */
 template <typename T> void postOrder(Tree<T> &Root, vector<T> &traversedData) {
   // TODO: Implementasikan!
+  if (Root != nullptr) {
+    postOrder(Root->left, traversedData);
+    postOrder(Root->right, traversedData);
+    traversedData.push_back(Root->data);
+  }
 }
 
 } // namespace bst
